@@ -15,7 +15,7 @@
         </div>
         </div>
     </div>
-<?php endif; ?>
+  <?php endif; ?>
 
     <div class="card shadow mb-4">
                      <div class="card-header py-3">
@@ -46,16 +46,16 @@
                                 <td><?= $orang['nama_lengkap'] ?></td>
                                 <td><?= $orang['username'] ?></td>
                                 <td><?= $orang['telp'] ?></td>
-                                <td><a data-toggle='modal' data-target='#hapus<?= $orang['id_user']?>' href="" class="btn btn-danger">Hapus</a></td>                                
+                                <td> <a data-toggle='modal' data-target='#edit<?= $orang['id_user']?>' href="" class="btn btn-success">Edit</a>|<a data-toggle='modal' data-target='#hapus<?= $orang['id_user']?>' href="" class="btn btn-danger">Hapus</a> </td>                                
                             </tr>
                                 <?php endforeach; ?>   
                             </tbody>
                             </table>
-
                             </div>
                         </div>
         </div>
-</div>
+  </div>
+
 
 <?php
  $i = 1;
@@ -71,7 +71,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Apakah Anda Yakin ingin menghapus data <?=$orang['nama_lengkap']?>
+        Apakah Anda Yakin ingin menghapus data <label class="text-danger"><?=$orang['nama_lengkap']?></label>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -87,3 +87,50 @@
 <?php endforeach; ?>   
 
 
+
+<!-- update data -->
+<!-- <?php foreach ($masyarakat as $orang ) :?>
+<div class="modal fade" id="edit<?= $orang['id_user']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-center-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+
+
+      <form class="" action="<?=base_url()?>admin/masyarakat/editmasyarakat/<?=$orang['id_user']?>" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nama Lengkap</label>
+                    <input type="text" class="form-control" name="tambahnama" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $orang['nama_lengkap'] ?>">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" name="tambahusername" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $orang['username'] ?>">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="text" name="tambahpassword" class="form-control" id="exampleInputPassword1" value="<?= $orang['password'] ?>">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nomer Telpon</label>
+                    <input type="number" name="tambahnomer" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?= $orang['telp'] ?>">
+                </div>
+                
+                <button type="submit" class="btn btn-success btn-lg btn-block" >Edit</button>
+        </form>
+
+
+
+
+      </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<?php endforeach;?>

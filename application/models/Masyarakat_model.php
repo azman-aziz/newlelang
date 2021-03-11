@@ -23,4 +23,17 @@ class Masyarakat_model extends CI_model {
         $this->db->delete('tb_masyarakat',['id_user' => $id]);
     }
 
+    public function editmasyarakat($id){
+
+        $data = [
+            "nama_lengkap" => $this->input->post('tambahnama',true),
+            "username" => $this->input->post('tambahusername',true),
+            "password" => $this->input->post('tambahpassword',true),
+            "telp" => $this->input->post('tambahnomer',true)
+        ];
+
+        $this->db->where('id_user', $this->input->post('id'));
+        $this->db->update('tb_masyarakat', $data);
+    }
+
 }

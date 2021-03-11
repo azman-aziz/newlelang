@@ -35,13 +35,25 @@ class Masyarakat extends CI_Controller {
         } else {
             $this->Masyarakat_model->tambahDataMasyarakat();
             $this->session->set_flashdata('status','Ditambahkan');
-            redirect('admin/masyarakat/masyarakat');
+            redirect('admin/masyarakat');
         }
     }
 
     public function hapusmasyarakat($id){
         $this->Masyarakat_model->hapusDataMasyarakat($id);
         $this->session->set_flashdata('status', 'Dihapus');
+        redirect('admin/masyarakat');
+    }
+
+    public function editmasyarakat(){
+
+        $this->form_validation->set_rules('tambahnama', 'Nama', 'required');
+        $this->form_validation->set_rules('tambahusername', 'Username', 'required');
+        $this->form_validation->set_rules('tambahpassword', 'Password', 'required');
+        $this->form_validation->set_rules('tambahnomer', 'Nomer', 'required|numeric');
+
+        $this->Masyarakat_model->editmasyarakat();
+        $this->session->set_flashdata('status', 'Diubah');
         redirect('admin/masyarakat');
     }
 

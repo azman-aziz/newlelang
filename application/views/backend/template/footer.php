@@ -1,7 +1,7 @@
-</div>
+</div></div></div>
             <!-- End of Main Content -->
-<!-- Footer -->
-<footer class="sticky-footer bg-white">
+        <!-- Footer -->
+        <footer class="sticky-footer bg-transparant">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Aziz Maulana 2020</span>

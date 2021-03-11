@@ -58,3 +58,4 @@ $route['admin'] = 'backend/admin';
 $route['admin/masyarakat'] = 'backend/masyarakat';
 $route['admin/masyarakat/tambahmasyarakat'] = 'backend/masyarakat/tambahmasyarakat';
 $route['admin/masyarakat/hapusmasyarakat/(:any)'] = 'backend/masyarakat/hapusmasyarakat/$1';
+$route['admin/masyarakat/editmasyarakat/(:any)'] = 'backend/masyarakat/editmasyarakat/$1';
