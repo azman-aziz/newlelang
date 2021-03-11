@@ -23,6 +23,11 @@ class Masyarakat_model extends CI_model {
         $this->db->delete('tb_masyarakat',['id_user' => $id]);
     }
 
+    public function getMasyarakatById($id)
+    {
+        return $this->db->get_where('tb_masyarakat', ['id_user' => $id])->row_array();
+    }
+
     public function editmasyarakat($id){
 
         $data = [
@@ -32,8 +37,8 @@ class Masyarakat_model extends CI_model {
             "telp" => $this->input->post('tambahnomer',true)
         ];
 
-        $this->db->where('id_user', $this->input->post('id'));
-        $this->db->update('tb_masyarakat', $data);
+        // $this->db->where();
+        $this->db->update('tb_masyarakat', $data , ['id_user' => $id]);
     }
 
 }

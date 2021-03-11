@@ -30,7 +30,7 @@ class Masyarakat extends CI_Controller {
 
         if( $this->form_validation->run() == false){
             $this->load->view('backend/template/header', $data);
-            $this->load->view('backend//masyarakat/tambahmasyarakat', $data);
+            $this->load->view('backend/masyarakat/tambahmasyarakat', $data);
             $this->load->view('backend/template/footer');
         } else {
             $this->Masyarakat_model->tambahDataMasyarakat();
@@ -45,16 +45,26 @@ class Masyarakat extends CI_Controller {
         redirect('admin/masyarakat');
     }
 
-    public function editmasyarakat(){
+    public function editmasyarakat($id){
 
         $this->form_validation->set_rules('tambahnama', 'Nama', 'required');
         $this->form_validation->set_rules('tambahusername', 'Username', 'required');
         $this->form_validation->set_rules('tambahpassword', 'Password', 'required');
         $this->form_validation->set_rules('tambahnomer', 'Nomer', 'required|numeric');
 
-        $this->Masyarakat_model->editmasyarakat();
-        $this->session->set_flashdata('status', 'Diubah');
-        redirect('admin/masyarakat');
+        $data['masyarakat'] = $this->Masyarakat_model->getMasyarakatById($id);
+        $data['judul'] = 'Edit Data masyarakat';
+
+        if( $this->form_validation->run() == false){
+            $this->load->view('backend/template/header', $data);
+            $this->load->view('backend/masyarakat/editmasyarakat', $data);
+            $this->load->view('backend/template/footer');
+        } else {
+            $this->Masyarakat_model->editmasyarakat($id);
+            $this->session->set_flashdata('status', 'Diubah');
+            redirect('admin/masyarakat');
+        }
+        
     }
 
 
