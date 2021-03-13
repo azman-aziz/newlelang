@@ -59,3 +59,8 @@ $route['admin/masyarakat'] = 'backend/masyarakat';
 $route['admin/masyarakat/tambahmasyarakat'] = 'backend/masyarakat/tambahmasyarakat';
 $route['admin/masyarakat/hapusmasyarakat/(:any)'] = 'backend/masyarakat/hapusmasyarakat/$1';
 $route['admin/masyarakat/editmasyarakat/(:any)'] = 'backend/masyarakat/editmasyarakat/$1';
+
+
+$route['admin/petugas'] = 'backend/petugas';
+$route['admin/petugas/tambahpetugas'] = 'backend/petugas/tambahpetugas';
+$route['admin/petugas/hapuspetugas/(:any)'] = 'backend/petugas/hapuspetugas/$1';
