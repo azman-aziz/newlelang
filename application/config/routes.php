@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['admin'] = 'backend/admin';
 $route['admin/masyarakat'] = 'backend/masyarakat';
+
 $route['admin/masyarakat/tambahmasyarakat'] = 'backend/masyarakat/tambahmasyarakat';
 $route['admin/masyarakat/hapusmasyarakat/(:any)'] = 'backend/masyarakat/hapusmasyarakat/$1';
 $route['admin/masyarakat/editmasyarakat/(:any)'] = 'backend/masyarakat/editmasyarakat/$1';
@@ -64,3 +65,6 @@ $route['admin/masyarakat/editmasyarakat/(:any)'] = 'backend/masyarakat/editmasya
 $route['admin/petugas'] = 'backend/petugas';
 $route['admin/petugas/tambahpetugas'] = 'backend/petugas/tambahpetugas';
 $route['admin/petugas/hapuspetugas/(:any)'] = 'backend/petugas/hapuspetugas/$1';
+
+$route['admin/barang'] = 'backend/barang';
+$route['admin/barang/hapusbarang/(:any)'] = 'backend/barang/hapusbarang/$1';

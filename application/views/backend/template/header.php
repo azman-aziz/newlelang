@@ -64,7 +64,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="<?= base_url();?>admin/barang" 
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-boxes"></i>
                     <span>Pendataan Barang</span>
