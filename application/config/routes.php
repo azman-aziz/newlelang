@@ -68,3 +68,6 @@ $route['admin/petugas/hapuspetugas/(:any)'] = 'backend/petugas/hapuspetugas/$1';
 
 $route['admin/barang'] = 'backend/barang';
 $route['admin/barang/hapusbarang/(:any)'] = 'backend/barang/hapusbarang/$1';
+
+$route['admin/lelang'] = 'backend/lelang';
+$route['admin/lelang/hapuselalang/(:any)'] = 'backend/lelang/hapuslelang/$1';

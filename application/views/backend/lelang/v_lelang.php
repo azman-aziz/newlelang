@@ -1,5 +1,5 @@
 <div class="container">
-    <h2  class="m-0 font-weight-bold text text-secondary  text-center">Data Barang</h2>
+    <h2  class="m-0 font-weight-bold text text-secondary  text-center">History Lelang</h2>
         <?php if($this->session->flashdata('status')) : ?>
         <div class="row mt-3">
             <div class="col-md-6">
@@ -13,7 +13,7 @@
             </div>
         </div>
           <?php endif; ?>
-          
+        <?php var_dump($barang) ?>          
 
     <div class="card shadow mb-4">
                     
@@ -22,40 +22,54 @@
 
                             <table id="example" class="table table-bordered " style="width:100%">
                             <thead>
+                                
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Barang</th>
-                                    <th>tanggal Masuk</th>
-                                    <th>Harga Awal</th>
+                                    <th>tanggal Lelang</th>
+                                    <th>Status Lelang</th>
+                                    <th>Pemilik</th>
+                                    <th>No telpon</th>
                                     <th>Aksi</th>
                                 </tr>
+                                
                             </thead>
                             <tbody>
                                 
-                                <?php
+                               
+                            <?php 
                                 $i = 1;
-                                foreach ($barang as $item ) :?>
+                                foreach($barang as $item ) :
+                            ?>
                             <tr>
                                 <td><?= $i++?></td>
-                                <td><?= $item['nama_barang']?></td>
-                                <td><?= date('d-M-y',strtotime($item['tgl']))?></td>
+                                <td><?=$item['nama_barang'];?></td>
+                                <td><?= date('d-M-y',strtotime($item['tgl_lelang']))?></td>
                                <td>
-                               <?php// strtoupper( $item['status'])?>
-                               <?= 'Rp. ' . number_format($item['harga_awal'])?>
+                                <?php if($item['status'] == 'dibuka') : ?>
+                                <p class="text text-success"><?= strtoupper( $item['status'])?></p>
+                               <?php else :?>
+                               <p class="text text-danger"><?= strtoupper( $item['status'])?></p>
+                                <?php endif; ?>
                                </td>
+                               <td><?=$item['nama_lengkap']?></td>
+                               <td><?=$item['telp']?></td>
                                 <td> 
-                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#deskripsi<?=$item['id_barang']?>">Deskripsi</a>
+                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#deskripsi<?= $item['id_barang'] ?>">Deskripsi</a>
 
 
-                                <a data-toggle='modal' data-target='#hapus<?=$item['id_barang']?>' href="" class="btn btn-danger">Hapus</a> </td>                                
+                                <a data-toggle='modal' data-target='#hapus<?= $item['id_lelang']?>' href="" class="btn btn-danger">Hapus</a> </td>                                
                             </tr>
-                                <?php endforeach; ?>   
+                                <?php endforeach; ?>
+                                
                             </tbody>
                             </table>
                             </div>
                         </div>
         </div>
 </div>
+
+
 
 
 <?php foreach ($barang as $item ) :?>
@@ -79,35 +93,26 @@
 
 <?php endforeach; ?>
 
-
-
 <?php foreach ($barang as $item ) :?>
-
-
-<!-- Modal -->
-<div class="modal fade" id="hapus<?=$item['id_barang']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="hapus<?=$item['id_lelang']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hapus Barang</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-       Apakah anda yakin ingin menghapus <label class="text-danger"><?=$item['nama_barang']?></label>
+       Yakin Ingin Menghapus History pada tanggal <label class="text-danger"><?=$item['tgl_lelang']?></label>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-
-        <form action="<?=base_url()?>admin/barang/hapusbarang/<?=$item['id_barang']?>" method="POST">
+          <form action="<?=base_url()?>admin/lelang/hapuselalang/<?=$item['id_lelang']?>" method="POST">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
         <button type="submit" class="btn btn-danger">Hapus</button>
         </form>
       </div>
     </div>
   </div>
 </div>
-
 <?php endforeach; ?>
-
-  

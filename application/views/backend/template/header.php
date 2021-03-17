@@ -90,6 +90,14 @@
                     </div>
                 </div>
             </li>
+            <!-- lelang -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?= base_url()?>admin/lelang" >
+                    <i class="far fa-handshake"></i>
+                    <span>Lelang</span>
+                </a>
+                
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
