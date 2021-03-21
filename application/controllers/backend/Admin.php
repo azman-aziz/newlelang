@@ -20,6 +20,10 @@ class Admin extends CI_Controller {
 	 */
 
 	public function index(){
+
+		if ($this->session->userdata('nama') == null) {
+            redirect('admin/auth');
+        }
 		$data['judul'] = 'Halaman Admin';
 		$this->load->view('backend/template/header', $data);
 		$this->load->view('backend/index');

@@ -1,4 +1,9 @@
 
+
+                 <?php
+                 $date = $this->session->userdata();
+                 var_dump($date);
+                 ?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
